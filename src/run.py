@@ -13,12 +13,12 @@ def run_script(cwd, script, return_output=False):
 
         if return_output:
             output = (
-                check_output(["sh", "-euo", "pipefail", f.name], cwd=cwd)
+                check_output(["/bin/sh", "-euo", "pipefail", f.name], cwd=cwd)
                 .decode("utf-8")
                 .strip()
             )
         else:
-            run(["sh", "-euo", "pipefail", f.name], cwd=cwd, check=True)
+            run(["/bin/sh", "-euo", "pipefail", f.name], cwd=cwd, check=True)
 
     print(f"Returning output:\n{output}")
 
