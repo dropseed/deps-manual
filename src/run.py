@@ -20,6 +20,7 @@ def run_script(cwd, script, return_output=False):
         else:
             run(["/bin/bash", "-euo", "pipefail", f.name], cwd=cwd, check=True)
 
-    print(f"Returning output:\n{output}")
+    if return_output:
+        print(f"Returning output:\n{output}")
 
     return output
