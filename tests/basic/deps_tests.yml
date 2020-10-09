@@ -1,0 +1,17 @@
+tests:
+- name: basic
+  repo: repo
+  diff: repo_final
+  data: dependencies.json
+  user_config:
+    settings:
+      deps:
+        deps-manual-example:
+          collect: |
+            find -s hello-world -type f -exec md5sum {} \; | md5sum |  cut -d ' ' -f1
+          act: |
+            rm -r hello-world
+            curl -H "Authorization: token ${GITHUB_TOKEN}" -L --fail https://api.github.com/repos/octocat/Hello-World/tarball/master -o hello-world.tar.gz
+            mkdir -p hello-world
+            tar xzf hello-world.tar.gz --strip-components 1 -C hello-world
+            rm hello-world.tar.gz

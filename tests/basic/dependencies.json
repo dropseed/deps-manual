@@ -1,0 +1,22 @@
+{
+  "manifests": {
+    ".": {
+      "current": {
+        "dependencies": {
+          "deps-manual-example": {
+            "constraint": "89f640e8dae8422e5c4d40285b764a88",
+            "source": "manual"
+          }
+        }
+      },
+      "updated": {
+        "dependencies": {
+          "deps-manual-example": {
+            "constraint": "4ea66ec5c7cb7883bc32c6a3b9a42123",
+            "source": "manual"
+          }
+        }
+      }
+    }
+  }
+}
