@@ -8,7 +8,7 @@ tests:
       deps:
         deps-manual-example:
           collect: |
-            find -s hello-world -type f -exec md5sum {} \; | md5sum |  cut -d ' ' -f1
+            find hello-world -type f -exec md5sum {} \; | sort -k 2 | md5sum |  cut -d ' ' -f1
           act: |
             rm -r hello-world
             curl -H "Authorization: token ${GITHUB_TOKEN}" -L --fail https://api.github.com/repos/octocat/Hello-World/tarball/master -o hello-world.tar.gz
